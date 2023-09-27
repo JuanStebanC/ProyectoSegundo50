@@ -10,7 +10,7 @@ public class Detail {
     }
 
     public  double calcSubTotal(){
-
+        double subTotal = (product.calcIva() + product.getValue() ) * this.cant;
         return 0;
     }
 }
