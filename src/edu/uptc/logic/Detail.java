@@ -1,6 +1,7 @@
 package edu.uptc.logic;
 
 public class Detail {
+    
     Product product;
     private short cant;
 
@@ -9,8 +10,11 @@ public class Detail {
         this.cant = cant;
     }
 
-    public  double calcSubTotal(){
-        double subTotal = (product.calcIva() + product.getValue() ) * this.cant;
+    public  double calcSubTotal() {
+        double subTotal = (product.calcIva() + product.getValue()) * this.cant;
         return 0;
+    }
+    public double calcSubTotal(){
+        return product.calcIva() * cant;
     }
 }
