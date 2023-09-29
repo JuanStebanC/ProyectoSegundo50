@@ -10,6 +10,8 @@ public class Product {
     public byte STOCK_MIN = 5;
     private LocalDate dateExpired;
 
+    
+
     public Product(String idProduct, String description, double value, int stock, LocalDate dateExpired, ETypeProduct eTypeProduct) {
         this.idProduct = idProduct;
         this.description = description;
@@ -42,4 +44,62 @@ public class Product {
 
         return valIva;
     }
+
+    public ETypeProduct geteTypeProduct() {
+        return eTypeProduct;
+    }
+
+    public void seteTypeProduct(ETypeProduct eTypeProduct) {
+        this.eTypeProduct = eTypeProduct;
+    }
+
+    public String getIdProduct() {
+        return idProduct;
+    }
+
+    public void setIdProduct(String idProduct) {
+        this.idProduct = idProduct;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public double getValue() {
+        return value;
+    }
+
+    public void setValue(double value) {
+        this.value = value;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    public byte getSTOCK_MIN() {
+        return STOCK_MIN;
+    }
+
+    public void setSTOCK_MIN(byte sTOCK_MIN) {
+        STOCK_MIN = sTOCK_MIN;
+    }
+
+    public LocalDate getDateExpired() {
+        return dateExpired;
+    }
+
+    public void setDateExpired(LocalDate dateExpired) {
+        this.dateExpired = dateExpired;
+    }
+
+    
 }
