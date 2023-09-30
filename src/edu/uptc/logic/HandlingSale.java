@@ -6,13 +6,16 @@ public class HandlingSale {
 
     Product product;
     ArrayList<Product> products;
-    //Bill bill;
+    Bill bill;
+    
 
     public HandlingSale() {
         
         product = new Product(null, null, 0, 0, null, null);
         products = new ArrayList<>();
         products.add(0, product);
+        bill = new Bill(null, null);
+        
     
     }
 
@@ -66,25 +69,86 @@ public class HandlingSale {
         return false;
     }
 
-    public ArrayList<Product> getProducts(){
+    public ArrayList<String> getProducts(){
 
+        ArrayList<String> allProductsStr = new ArrayList<>();
+        String productStr = "";
+
+        for (int i = 0; i < products.size(); i++) {
+
+            productStr = "Id: " + products.get(i).getIdProduct() +
+                " - Descripcion: " + products.get(i).getDescription() + 
+                " - VAlor: " + products.get(i).getValue() + 
+                " - Fecha de expiracion: " + products.get(i).getDateExpired() + 
+                " - Tipo de producto: " + products.get(i).geteTypeProduct();
+
+            allProductsStr.add(productStr);
+        }
+
+        return allProductsStr;
+    }
+
+    public boolean addBill(Bill newBill){
+
+        try {
+            bill = new Bill(newBill.getNumber(), bill.getDateBill());
+            return true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean addDetail(Product newProduct, short cant){
+
+        try {
+
+            bill.addDetail(newProduct, cant);
+            return true;
+            
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+        }
+
+        return false;
+
+    }
+
+    public int updateStock(String idProduct, int newStock){ 
+
+        for (int i = 0; i < products.size(); i++) {
+            
+            if (products.get(i).getIdProduct().equals(idProduct)) {
         
-        return (ArrayList<Product>) products.clone();
+                if (products.get(i).getStock() + newStock < products.get(i).STOCK_MIN) {
+                    
+                    return products.get(i).getStock();
+                } else {
+                    
+                    int finalStock = products.get(i).getStock() + newStock;  
+                    products.get(i).setStock(finalStock);
 
-    }
-    /*public boolean addBill(Bill bill){
-        return true;
-    }*/
+                    return finalStock;
 
-    public boolean addDetail(String[] detail){
-        return true;
-    }
+                }
+            }
+        }
 
-    public int updateStock(String[] detail){ //Id & newStock
         return 0;
     }
     
-    public String[] getDetails(){
-        return null;
+    public ArrayList<String> getDetails(){
+
+        ArrayList<String> aux = new ArrayList<>();
+    
+        for (int i = 0; i < products.size(); i++) {
+            aux.add(i,String.valueOf(products.get(i).getIdProduct())+" "+String.valueOf(products.get(i).getDescription())
+            +" "+String.valueOf(products.get(i).getValue())+" "+String.valueOf(products.get(i).getDateExpired())
+            +" "+String.valueOf(products.get(i).geteTypeProduct()));
+        }
+        return aux;
     }
+    
 }

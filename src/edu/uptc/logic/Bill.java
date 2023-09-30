@@ -4,26 +4,72 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Bill {
+
     private String number;
     private LocalDate dateBill;
+    private Detail details;
+    private ArrayList<Product> listDetails = new ArrayList<Product>();
+    private ArrayList<Detail> listDetails2 = new ArrayList<Detail>();
+
+    public Bill() {
+    }
 
     public Bill(String number, LocalDate dateBill) {
         this.number = number;
-        this.dateBill = dateBill;
+        this.dateBill = dateBill;       
     }
 
     public double calcTotal(){
 
-        return 0;
+        Double sum = 0.0;
+        for (int i = 0; i < listDetails.size(); i++) {
+            sum+=listDetails2.get(i).calcSubTotal();
+        }
+        return sum;
     }
 
-    public boolean addDetail(Product cant){
+    public boolean addDetail(Product product, short cant){
+
+        try {
+            
+            details= new Detail(product, cant);
+            listDetails.add(details.getProduct());
+            listDetails2.add(details);
+            
+            return true;
+
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+        }
 
         return false;
     }
 
     public ArrayList<Product> getDetails(){
 
-        return null;
+        return listDetails;
     }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public LocalDate getDateBill() {
+        return dateBill;
+    }
+
+    public void setDateBill(LocalDate dateBill) {
+        this.dateBill = dateBill;
+    }
+
+    public void setDetails(Detail details) {
+        this.details = details;
+    }
+
+    
 }

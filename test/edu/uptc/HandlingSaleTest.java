@@ -1,14 +1,13 @@
 package test.edu.uptc;
 
 import static org.junit.Assert.assertEquals;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.junit.jupiter.api.Test;
 import edu.uptc.logic.HandlingSale;
 import edu.uptc.logic.Product;
+import edu.uptc.logic.Bill;
 import edu.uptc.logic.ETypeProduct;
 
 public class HandlingSaleTest {
@@ -18,6 +17,7 @@ public class HandlingSaleTest {
     @Test
     void testAddDetail() {
 
+        assertEquals(true, handlingSale.addDetail(new Product("123", "Arroz", 6000, 10, LocalDate.of(2020, 1, 24), ETypeProduct.VIVERES), (short)5));
     }
 
     @Test
@@ -43,6 +43,16 @@ public class HandlingSaleTest {
     @Test
     void testGetDetails() {
 
+        handlingSale.addProduct(new Product("123", "Arroz", 6000, 10, LocalDate.of(2020, 1, 24), ETypeProduct.VIVERES));
+        handlingSale.addProduct(new Product("3523", "Cerveza", 6000, 10, LocalDate.of(2020, 1, 24), ETypeProduct.LICORES));
+        
+        ArrayList<String> lista = new ArrayList<>();
+        lista.add("123 Arroz 6000.0 2020-01-24 VIVERES");
+        handlingSale.addDetail(new Product("123", "Arroz", 6000, 10, LocalDate.of(2020, 1, 24), ETypeProduct.VIVERES), (short)5);
+        lista.add("3523 Cerveza 6000.0 2020-01-24 LICORES"); 
+        
+        assertEquals(lista, handlingSale.getDetails());
+
     }
 
     @Test
@@ -59,5 +69,31 @@ public class HandlingSaleTest {
     @Test
     void testUpdateStock() {
 
+        
+        handlingSale.addProduct(new Product("3423412", "Arroz", 5500, 40, LocalDate.of(2020, 1, 24), ETypeProduct.VIVERES));
+        assertEquals(50, handlingSale.updateStock("3423412", 10));
+        assertEquals(45, handlingSale.updateStock("3423412", -5));
+        assertEquals(0, handlingSale.updateStock("1asf", 10));
+        assertEquals(45, handlingSale.updateStock("3423412", -43));
+
+        handlingSale.addProduct(new Product("123", "Arroz", 5500, 90, LocalDate.of(2020, 1, 24), ETypeProduct.VIVERES));
+        assertEquals(50, handlingSale.updateStock("3423412", 5));
+        assertEquals(100, handlingSale.updateStock("123", 10));
     }
+
+    @Test
+    void testaddBill() {
+
+        assertEquals(true, handlingSale.addBill(new Bill("1234qwer", LocalDate.now())));
+    }
+
+    @Test
+    void testgetProducts() {
+
+        testAddProduct();
+        assertEquals("[Id: 123 - Descripcion: Arroz - VAlor: 6000.0 - Fecha de expiracion: 2020-01-24 - Tipo de producto: VIVERES, Id: 3523 - Descripcion: Cerveza - VAlor: 6000.0 - Fecha de expiracion: 2020-01-24 - Tipo de producto: LICORES]", handlingSale.getProducts().toString());
+
+
+    }
+
 }

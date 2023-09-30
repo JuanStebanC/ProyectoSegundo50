@@ -1,11 +1,8 @@
 package test.edu.uptc;
 
 import static org.junit.Assert.assertEquals;
-
 import java.time.LocalDate;
-
 import org.junit.jupiter.api.Test;
-
 import edu.uptc.logic.Detail;
 import edu.uptc.logic.ETypeProduct;
 import edu.uptc.logic.Product;

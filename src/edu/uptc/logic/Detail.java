@@ -14,4 +14,22 @@ public class Detail {
 
         return product.calcIva() * cant;
     }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public short getCant() {
+        return cant;
+    }
+
+    public void setCant(short cant) {
+        this.cant = cant;
+    }
+
+    
 }
