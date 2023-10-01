@@ -1,6 +1,5 @@
 package edu.uptc.logic;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class HandlingSale {
@@ -8,7 +7,6 @@ public class HandlingSale {
     Product product;
     ArrayList<Product> products;
     Bill bill;
-    
 
     public HandlingSale() {
         
@@ -16,8 +14,6 @@ public class HandlingSale {
         products = new ArrayList<>();
         products.add(0, product);
         bill = new Bill(null, null);
-        
-    
     }
 
     public boolean addProduct(Product newProduct){
@@ -92,6 +88,7 @@ public class HandlingSale {
     public boolean addBill(Bill newBill){
 
         try {
+            bill = new Bill(newBill.getNumber(), newBill.getDateBill());
 
             bill = new Bill(newBill.getNumber(), newBill.getDateBill());
             return true;
@@ -155,8 +152,18 @@ public class HandlingSale {
 
         aux.add("-------------------------------------------------------------\n");
         aux.add("Total:                                               "+bill.calcTotal());
+
+        aux.add(0,"               Tienda donde JuanDa\n"+"-------------------------------------------------------------\n"
+        +"    # Bill:"+ bill.getNumber()+"                  Date:"+String.valueOf(bill.getDateBill())+"\n");
+
+        for (int i = 0; i < bill.getDetailsTwo().size(); i++){
+            aux.add(i+1, "Id: "+bill.getDetailsTwo().get(i).getProduct().getIdProduct()+" | Producto: "+bill.getDetailsTwo().get(i).getProduct().getDescription()
+            +" | Valor: "+bill.getDetailsTwo().get(i).getProduct().getValue()+" | Cantidad: "+bill.getDetailsTwo().get(i).getCant());
+        }
+
+        aux.add("-------------------------------------------------------------\n");
+        aux.add("Total:                                               "+bill.calcTotal());
         
         return aux;
     }
-    
 }

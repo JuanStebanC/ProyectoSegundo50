@@ -1,6 +1,7 @@
 package test.edu.uptc;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
@@ -18,8 +19,9 @@ public class BillTest {
     @Test
     void testAddDetail() {
 
-        bill = new Bill(null, null);
+        
         assertEquals(true, bill.addDetail(new Product("123", "Arroz", 6000, 10, LocalDate.of(2020, 1, 24), ETypeProduct.VIVERES), (short)5));
+        System.out.println(bill.getNumber());
 
     }
 

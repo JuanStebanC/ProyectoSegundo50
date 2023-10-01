@@ -17,6 +17,7 @@ public class Bill {
     public Bill(String number, LocalDate dateBill) {
         this.number = number;
         this.dateBill = dateBill; 
+        this.dateBill = dateBill; 
     }
 
     public double calcTotal(){
@@ -56,6 +57,11 @@ public class Bill {
         return listDetails2;
     }
 
+    public ArrayList<Detail> getDetailsTwo(){
+
+        return listDetails2;
+    }
+
     public String getNumber() {
         return number;
     }
@@ -65,6 +71,7 @@ public class Bill {
     }
 
     public LocalDate getDateBill() {
+
 
         return dateBill;
     }
