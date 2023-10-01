@@ -15,7 +15,8 @@ public class Runner {
         System.out.println("Bienvenido a la gestión de ventas de Juan y Daniela");
         exit = false;
         do{
-            System.out.println("Selecciones una opción:" +
+            System.out.println("Este es el Menú principal" +
+                    "\n Selecciona una opción:" +
                     "\n 1. Agregar una venta/factura" +
                     "\n 2. Actualizar existencia productos" +
                     "\n 3. Consultar detalles de una factura" +
