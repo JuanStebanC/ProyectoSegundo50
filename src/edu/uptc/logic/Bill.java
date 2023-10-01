@@ -60,6 +60,5 @@ public class Bill {
     public LocalDate getDateBill() {
 
         return dateBill;
-    }    
-    
+    }        
 }
