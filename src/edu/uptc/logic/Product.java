@@ -15,6 +15,7 @@ public class Product {
     }
 
 
+
     public Product(String idProduct, String description, double value, int stock, LocalDate dateExpired, ETypeProduct eTypeProduct) {
         this.idProduct = idProduct;
         this.description = description;
@@ -47,7 +48,7 @@ public class Product {
 
         return valIva;
     }
-
+    
     public ETypeProduct geteTypeProduct() {
         return eTypeProduct;
     }
@@ -73,6 +74,11 @@ public class Product {
     public LocalDate getDateExpired() {
         return dateExpired;
     }
+
+    public double getValue() {
+        return value;
+    }
+
     public void setValue(double value) {
         this.value = value;
     }
