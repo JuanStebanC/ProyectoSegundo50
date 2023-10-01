@@ -12,6 +12,7 @@ public class Product {
     private LocalDate dateExpired;
     
     public Product() {
+
     }
 
     public Product(String idProduct, String description, double value, int stock, LocalDate dateExpired, ETypeProduct eTypeProduct) {
@@ -46,7 +47,7 @@ public class Product {
 
         return valIva;
     }
-
+    
     public ETypeProduct geteTypeProduct() {
         return eTypeProduct;
     }
@@ -58,11 +59,9 @@ public class Product {
     public String getDescription() {
         return description;
     }
-
     public double getValue() {
         return value;
     }
-
     public int getStock() {
         return stock;
     }
@@ -73,5 +72,5 @@ public class Product {
 
     public LocalDate getDateExpired() {
         return dateExpired;
-    } 
+    }
 }

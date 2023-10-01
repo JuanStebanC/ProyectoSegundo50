@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Bill {
-
     private String number;
     private LocalDate dateBill;
     private Detail details;
@@ -13,11 +12,10 @@ public class Bill {
 
     public Bill(String number, LocalDate dateBill) {
         this.number = number;
-        this.dateBill = dateBill; 
+        this.dateBill = dateBill;
     }
 
     public double calcTotal(){
-
         Double sum = 0.0;
         for (int i = 0; i < listDetails.size(); i++) {
             sum+=listDetails2.get(i).calcSubTotal();
@@ -39,17 +37,14 @@ public class Bill {
             
             e.printStackTrace();
         }
-
         return false;
     }
 
     public ArrayList<Product> getDetails(){
-
         return listDetails;
     }
 
     public ArrayList<Detail> getDetailsTwo(){
-
         return listDetails2;
     }
 

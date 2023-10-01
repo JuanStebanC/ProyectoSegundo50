@@ -10,8 +10,8 @@ public class Detail {
         this.cant = cant;
     }
 
-    public  double calcSubTotal(){        
-
+    public  double calcSubTotal() {
+        
         return product.calcIva() * cant;
     }
 
