@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class HandlingSale {
 
     Product product;
-    ArrayList<Product> products;
     Bill bill;
+    ArrayList<Product> products;
 
     public HandlingSale() {
         
@@ -142,28 +142,18 @@ public class HandlingSale {
 
         ArrayList<String> aux = new ArrayList<>();
 
-        aux.add(0,"               Tienda donde JuanDa\n"+"-------------------------------------------------------------\n"
-        +"    # Bill:"+ bill.getNumber()+"                  Date:"+String.valueOf(bill.getDateBill())+"\n");
+        aux.add(0,"               Tienda donde JuanDa\n"           
+            + "-------------------------------------------------------------\n"
+            + "    # Bill:" + bill.getNumber() + "                  Date:" + String.valueOf(bill.getDateBill())+ "\n");
 
         for (int i = 0; i < bill.getDetailsTwo().size(); i++){
-            aux.add(i+1, "Id: "+bill.getDetailsTwo().get(i).getProduct().getIdProduct()+" | Producto: "+bill.getDetailsTwo().get(i).getProduct().getDescription()
-            +" | Valor: "+bill.getDetailsTwo().get(i).getProduct().getValue()+" | Cantidad: "+bill.getDetailsTwo().get(i).getCant());
+
+            aux.add(i + 1, "Id: " + bill.getDetailsTwo().get(i).getProduct().getIdProduct() + " | Producto: " + bill.getDetailsTwo().get(i).getProduct().getDescription() + " | Valor: " + bill.getDetailsTwo().get(i).getProduct().getValue() + " | Cantidad: " + bill.getDetailsTwo().get(i).getCant());
         }
 
         aux.add("-------------------------------------------------------------\n");
         aux.add("Total:                                               "+bill.calcTotal());
 
-        aux.add(0,"               Tienda donde JuanDa\n"+"-------------------------------------------------------------\n"
-        +"    # Bill:"+ bill.getNumber()+"                  Date:"+String.valueOf(bill.getDateBill())+"\n");
-
-        for (int i = 0; i < bill.getDetailsTwo().size(); i++){
-            aux.add(i+1, "Id: "+bill.getDetailsTwo().get(i).getProduct().getIdProduct()+" | Producto: "+bill.getDetailsTwo().get(i).getProduct().getDescription()
-            +" | Valor: "+bill.getDetailsTwo().get(i).getProduct().getValue()+" | Cantidad: "+bill.getDetailsTwo().get(i).getCant());
-        }
-
-        aux.add("-------------------------------------------------------------\n");
-        aux.add("Total:                                               "+bill.calcTotal());
-        
         return aux;
     }
 }

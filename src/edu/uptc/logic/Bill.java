@@ -11,12 +11,8 @@ public class Bill {
     private ArrayList<Product> listDetails = new ArrayList<Product>();
     private ArrayList<Detail> listDetails2 = new ArrayList<Detail>();
 
-    public Bill() {
-    }
-
     public Bill(String number, LocalDate dateBill) {
         this.number = number;
-        this.dateBill = dateBill; 
         this.dateBill = dateBill; 
     }
 
@@ -57,30 +53,12 @@ public class Bill {
         return listDetails2;
     }
 
-    public ArrayList<Detail> getDetailsTwo(){
-
-        return listDetails2;
-    }
-
     public String getNumber() {
         return number;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
     public LocalDate getDateBill() {
 
-
         return dateBill;
-    }
-
-    public void setDateBill(LocalDate dateBill) {
-        this.dateBill = dateBill;
-    }
-
-    public void setDetails(Detail details) {
-        this.details = details;
-    }
+    }    
 }
