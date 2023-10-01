@@ -40,11 +40,6 @@ public class Bill {
         return false;
     }
 
-    public boolean addDetail(Product cant) {
-
-        return false;
-    }
-
     public ArrayList<Product> getDetails(){
         return listDetails;
     }
@@ -60,5 +55,5 @@ public class Bill {
     public LocalDate getDateBill() {
 
         return dateBill;
-    } 
+    }        
 }

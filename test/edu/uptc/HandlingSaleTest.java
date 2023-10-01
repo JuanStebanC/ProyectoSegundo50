@@ -59,7 +59,7 @@ public class HandlingSaleTest {
         lista.add("Total:                                               48660.0");
         
         assertEquals(lista, handlingSale.getDetails());
-
+        
     }
 
     @Test

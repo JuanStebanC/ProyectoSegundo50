@@ -21,7 +21,6 @@ public class BillTest {
 
         
         assertEquals(true, bill.addDetail(new Product("123", "Arroz", 6000, 10, LocalDate.of(2020, 1, 24), ETypeProduct.VIVERES), (short)5));
-        System.out.println(bill.getNumber());
 
     }
 

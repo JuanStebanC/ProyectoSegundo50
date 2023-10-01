@@ -11,8 +11,8 @@ public class Detail {
     }
 
     public  double calcSubTotal() {
-        double subTotal = (product.calcIva() + product.getValue()) * this.cant;
-        return 0;
+        
+        return product.calcIva() * cant;
     }
 
     public Product getProduct() {
