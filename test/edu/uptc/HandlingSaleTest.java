@@ -1,6 +1,7 @@
 package test.edu.uptc;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,13 +44,19 @@ public class HandlingSaleTest {
     @Test
     void testGetDetails() {
 
-        handlingSale.addProduct(new Product("123", "Arroz", 6000, 10, LocalDate.of(2020, 1, 24), ETypeProduct.VIVERES));
-        handlingSale.addProduct(new Product("3523", "Cerveza", 6000, 10, LocalDate.of(2020, 1, 24), ETypeProduct.LICORES));
+
+        handlingSale.addBill(new Bill("999", LocalDate.of(2023, 9, 29)));
+
+        handlingSale.addDetail(new Product("123", "Arroz", 6000, 10, LocalDate.of(2020, 1, 24), ETypeProduct.VIVERES), (short)2);
+        handlingSale.addDetail(new Product("3523", "Cerveza", 6000, 10, LocalDate.of(2020, 1, 24), ETypeProduct.LICORES), (short)5);
         
         ArrayList<String> lista = new ArrayList<>();
-        lista.add("123 Arroz 6000.0 2020-01-24 VIVERES");
-        handlingSale.addDetail(new Product("123", "Arroz", 6000, 10, LocalDate.of(2020, 1, 24), ETypeProduct.VIVERES), (short)5);
-        lista.add("3523 Cerveza 6000.0 2020-01-24 LICORES"); 
+
+        lista.add("               Tienda donde JuanDa\n"+"-------------------------------------------------------------\n"+"    # Bill:999                  Date:2023-09-29\n");
+        lista.add("Id: 123 | Producto: Arroz | Valor: 6000.0 | Cantidad: 2");
+        lista.add("Id: 3523 | Producto: Cerveza | Valor: 6000.0 | Cantidad: 5"); 
+        lista.add("-------------------------------------------------------------\n");
+        lista.add("Total:                                               48660.0");
         
         assertEquals(lista, handlingSale.getDetails());
 
