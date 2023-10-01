@@ -3,7 +3,7 @@ package edu.uptc.logic;
 import java.time.LocalDate;
 
 public class Product {
-    
+    private ETypeProduct typeProduct;
     private ETypeProduct eTypeProduct;
     private String idProduct, description;
     private double value;
@@ -13,6 +13,7 @@ public class Product {
     
     public Product() {
     }
+
 
     public Product(String idProduct, String description, double value, int stock, LocalDate dateExpired, ETypeProduct eTypeProduct) {
         this.idProduct = idProduct;
@@ -58,11 +59,9 @@ public class Product {
     public String getDescription() {
         return description;
     }
-
     public double getValue() {
         return value;
     }
-
     public int getStock() {
         return stock;
     }
@@ -73,5 +72,8 @@ public class Product {
 
     public LocalDate getDateExpired() {
         return dateExpired;
-    } 
+    }
+    public void setValue(double value) {
+        this.value = value;
+    }
 }
